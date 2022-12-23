@@ -58,9 +58,30 @@
         <a style="color: #FF0C88;">게</a>
         <a style="color: #670FDF;">임</a>
     </h1>
+    <h2 id="errorInfo" style="display: none;">[Code 00] 오류가 없습니다.</h2>
+    <div id="playButton"></div>
     <script>
-        if(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['people'] != undefined){
-
+        if(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['people'] == undefined){
+            document.getElementById("errorInfo").innerText = "[Code 11] 참가인원 정보가 넘어오지 않아 게임에 참여할 수 없습니다.";
+            document.getElementById("errorInfo").style.display = "block";
+        } else if(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['mode'] == undefined){
+            document.getElementById("errorInfo").innerText = "[Code 12] 모드 정보가 넘어오지 않아 게임에 참여할 수 없습니다.";
+            document.getElementById("errorInfo").style.display = "block";
+        } else if(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['subject'] == undefined){
+            document.getElementById("errorInfo").innerText = "[Code 13] 주제 정보가 넘어오지 않아 게임에 참여할 수 없습니다.";
+            document.getElementById("errorInfo").style.display = "block";
+        } else{
+            var randomPeople = Math.floor(Math.random() * Number(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['people']));
+            for(var i = 1; i <= Number(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['people']); i++){
+                if(i == randomPeople){
+                    document.getElementById("playButton").innerHTML += `<button id="${i}" onclick="delButton(this)">${i} : 선택하세요</button>`;
+                } else{
+                    document.getElementById("playButton").innerHTML += `<button id="${i}" onclick="delButton(this)">${i} : 선택하세요</button>`;
+                }
+            }
+        }
+        function delButton(el){
+            el.disabled = true;
         }
     </script>
 </body>
