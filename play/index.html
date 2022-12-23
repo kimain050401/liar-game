@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라이어게임</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap');
+        *{
+            font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif !important;
+            /* word-break: keep-all; */
+        }
+        html, body{
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+            background-color: #081127;
+            color: #FFFFFF;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        input[type=button], button, select{
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            border-radius: 0;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+        }
+        input[type=button], button, select{
+            border: none;
+            border-radius: 10px;
+            padding: 7px 16px 7px 16px;
+            width: 90vw;
+            max-width: 300px;
+            font-size: 16px;
+            height: 40px;
+            color: #333333;
+            background-color: #FFFFFFaa;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <a style="color: #FCF340;">라</a>
+        <a style="color: #33FF33;">이</a>
+        <a style="color: #0EFCFE;">어</a>
+        <a style="color: #FF0C88;">게</a>
+        <a style="color: #670FDF;">임</a>
+    </h1>
+    <script>
+        if(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['people'] != undefined){
+
+        }
+    </script>
+</body>
+</html>
