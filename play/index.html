@@ -115,14 +115,16 @@
             var randomPeople = Math.floor(Math.random() * Number(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['people'])) + 1;
             for(var i = 1; i <= Number(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['people']); i++){
                 if(i == randomPeople){
-                    document.getElementById("playButton").innerHTML += `<button id="but${i}" onclick="delButton(this, true)">${i} : 선택하세요</button>`;
+                    document.getElementById("playButton").innerHTML += `<button id="but${i}" onclick="delButton(this, true)">선택하세요</button>`;
                 } else{
-                    document.getElementById("playButton").innerHTML += `<button id="but${i}" onclick="delButton(this, false)">${i} : 선택하세요</button>`;
+                    document.getElementById("playButton").innerHTML += `<button id="but${i}" onclick="delButton(this, false)">선택하세요</button>`;
                 }
+                document.getElementById("playButton").innerHTML += "<br>";
             }
         }
         function delButton(el, liar){
             el.disabled = true;
+            el.innerText = "선택됨";
             document.getElementById("infofix").style.display = "block";
             if(liar == true){
                 if(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['mode'] == "normal"){
