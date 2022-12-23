@@ -51,9 +51,26 @@
         button:disabled{
             background-color: #FFFFFF33;
         }
+        #infofix{
+            display: none;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background-color: #ddddddaa;
+            z-index: 100;
+        }
     </style>
 </head>
 <body>
+    <div id="infofix">
+        <div class="box" style="height: 100vh;">
+            <div style="width: fit-content; max-width: 600px; height: fit-content; border-radius: 20px; background-color: #ffffff; padding: 20px; box-sizing: border-box; z-index: 200;">
+                <h2 id="keyword">키워드</h2>
+                <p>키워드 확인 후 다음 사람에게 넘기기 전에 아래 '닫기' 버튼을 꼭 눌러주세요!</p>
+                <p onclick="closePopup()">닫기</p>
+            </div>
+        </div>
+    </div>
     <h1>
         <a style="color: #FCF340;">라</a>
         <a style="color: #33FF33;">이</a>
@@ -77,14 +94,24 @@
             var randomPeople = Math.floor(Math.random() * Number(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['people']));
             for(var i = 1; i <= Number(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['people']); i++){
                 if(i == randomPeople){
-                    document.getElementById("playButton").innerHTML += `<button id="${i}" onclick="delButton(this)">${i} : 선택하세요</button>`;
+                    document.getElementById("playButton").innerHTML += `<button id="${i}" onclick="delButton(this, true)">${i} : 선택하세요</button>`;
                 } else{
-                    document.getElementById("playButton").innerHTML += `<button id="${i}" onclick="delButton(this)">${i} : 선택하세요</button>`;
+                    document.getElementById("playButton").innerHTML += `<button id="${i}" onclick="delButton(this, false)">${i} : 선택하세요</button>`;
                 }
             }
         }
-        function delButton(el){
+        function delButton(el, liar){
             el.disabled = true;
+            document.getElementById("infofix").style.display = "block";
+            if(liar == true){
+                document.getElementById("keyword").innerText = "라이어";
+                document.getElementById("keyword").style.color = "red";
+            } else{
+                document.getElementById("keyword").innerText = "키워드";
+            }
+        }
+        function closePopup(){
+            document.getElementById("infofix").style.display = "none";
         }
     </script>
 </body>
