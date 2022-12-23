@@ -94,9 +94,9 @@
             var randomPeople = Math.floor(Math.random() * Number(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['people']));
             for(var i = 1; i <= Number(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['people']); i++){
                 if(i == randomPeople){
-                    document.getElementById("playButton").innerHTML += `<button id="${i}" onclick="delButton(this, true)">${i} : 선택하세요</button>`;
+                    document.getElementById("playButton").innerHTML += `<button id="but${i}" onclick="delButton(this, true)">${i} : ${randomPeople} : true 선택하세요</button>`;
                 } else{
-                    document.getElementById("playButton").innerHTML += `<button id="${i}" onclick="delButton(this, false)">${i} : 선택하세요</button>`;
+                    document.getElementById("playButton").innerHTML += `<button id="but${i}" onclick="delButton(this, false)">${i} : false 선택하세요</button>`;
                 }
             }
         }
