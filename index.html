@@ -58,9 +58,9 @@
         <a style="color: #FF0C88;">게</a>
         <a style="color: #670FDF;">임</a>
     </h1>
-    <form action="/play">
+    <form action="/play" id="playForm" method="get">
         <h3>참가인원 :</h3>
-        <select id="people">
+        <select id="people" name="people" form="playForm">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -71,12 +71,12 @@
             <option value="8">8</option>
         </select>
         <h3>모드 :</h3>
-        <select id="mode">
+        <select id="mode" name="mode" form="playForm">
             <option value="normal">노말모드</option>
             <option value="babo">바보모드</option>
         </select>
         <h3>주제 :</h3>
-        <select id="subject">
+        <select id="subject" name="subject" form="playForm">
             <option value="food">음식</option>
             <option value="job">직업</option>
             <option value="place">장소</option>
