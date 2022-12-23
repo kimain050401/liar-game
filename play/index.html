@@ -94,7 +94,7 @@
         }
         var mainKeyword = keywords[Object.fromEntries((new URLSearchParams(window.location.search)).entries())['subject']][Math.floor(Math.random() * keywords[Object.fromEntries((new URLSearchParams(window.location.search)).entries())['subject']].length)];
         var subKeyword = keywords[Object.fromEntries((new URLSearchParams(window.location.search)).entries())['subject']][Math.floor(Math.random() * keywords[Object.fromEntries((new URLSearchParams(window.location.search)).entries())['subject']].length)];
-        while(True){
+        while(true){
             if(mainKeyword == subKeyword){
                 subKeyword = keywords[Object.fromEntries((new URLSearchParams(window.location.search)).entries())['subject']][Math.floor(Math.random() * keywords[Object.fromEntries((new URLSearchParams(window.location.search)).entries())['subject']].length)];
             }
