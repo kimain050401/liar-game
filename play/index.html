@@ -81,6 +81,17 @@
     <h2 id="errorInfo" style="display: none;">[Code 00] 오류가 없습니다.</h2>
     <div id="playButton"></div>
     <script>
+        let keywords = {
+            "food": ["케이크", "피자", "짜장면", "볶음밥", "떡볶이", "숭늉", "탕수육", "마라탕", "라면", "보쌈(수육)", "김치찌개(국)", "콩비지찌개", "파스타", "마들렌"],
+            "job": ["의사", "판사", "대통령", "국회의원", "모델", "유튜버", "심리치료사", "자영업자", "건물주", "환경미화원", "목사", "목수", "기사(운전사)", "군인", "파일럿", "CEO"],
+            "place": ["학교", "판문점", "공원", "병원", "도서관", "카페", "공항", "스키장", "방송국", "사진관", "청와대", "피사의 사탑", "개성공단", "군대", "버스정류장", "백두산", "에펠탑", "디즈니랜드"],
+            "country": ["미국"],
+            "animal": ["호랑이"],
+            "person": ["박근혜"],
+            "goods": ["변기", "스마트폰(휴대폰)", "볼펜", "안경"]
+        }
+        var mainKeyword = keywords[Object.fromEntries((new URLSearchParams(window.location.search)).entries())['subject']][Math.floor(Math.random() * keywords[Object.fromEntries((new URLSearchParams(window.location.search)).entries())['subject']].length)];
+        var subKeyword = keywords[Object.fromEntries((new URLSearchParams(window.location.search)).entries())['subject']][Math.floor(Math.random() * keywords[Object.fromEntries((new URLSearchParams(window.location.search)).entries())['subject']].length)];
         if(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['people'] == undefined){
             document.getElementById("errorInfo").innerText = "[Code 11] 참가인원 정보가 넘어오지 않아 게임에 참여할 수 없습니다.";
             document.getElementById("errorInfo").style.display = "block";
@@ -107,7 +118,7 @@
                 document.getElementById("keyword").innerText = "라이어";
                 document.getElementById("keyword").style.color = "red";
             } else{
-                document.getElementById("keyword").innerText = "키워드";
+                document.getElementById("keyword").innerText = mainKeyword;
                 document.getElementById("keyword").style.color = "#333333";
             }
         }
