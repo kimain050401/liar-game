@@ -115,8 +115,13 @@
             el.disabled = true;
             document.getElementById("infofix").style.display = "block";
             if(liar == true){
-                document.getElementById("keyword").innerText = "라이어";
-                document.getElementById("keyword").style.color = "red";
+                if(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['mode'] == "normal"){
+                    document.getElementById("keyword").innerText = "라이어";
+                    document.getElementById("keyword").style.color = "red";
+                } else if(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['mode'] == "normal"){
+                    document.getElementById("keyword").innerText = subKeyword;
+                    document.getElementById("keyword").style.color = "#333333";
+                }
             } else{
                 document.getElementById("keyword").innerText = mainKeyword;
                 document.getElementById("keyword").style.color = "#333333";
