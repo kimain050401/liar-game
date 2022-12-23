@@ -80,7 +80,7 @@
     </h1>
     <h2 id="errorInfo" style="display: none; color: #FFFFFF;">[Code 00] 오류가 없습니다.</h2>
     <div id="playButton"></div>
-    <br>
+    <br><br><br>
     <button onclick="location.href='/liar-game'">초기화하기</button>
     <script>
         let keywords = {
@@ -119,7 +119,7 @@
                 } else{
                     document.getElementById("playButton").innerHTML += `<button id="but${i}" onclick="delButton(this, false)">선택하세요</button>`;
                 }
-                document.getElementById("playButton").innerHTML += "<br>";
+                document.getElementById("playButton").innerHTML += "<br><br>";
             }
         }
         function delButton(el, liar){
