@@ -91,12 +91,12 @@
             document.getElementById("errorInfo").innerText = "[Code 13] 주제 정보가 넘어오지 않아 게임에 참여할 수 없습니다.";
             document.getElementById("errorInfo").style.display = "block";
         } else{
-            var randomPeople = Math.floor(Math.random() * Number(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['people']));
+            var randomPeople = Math.floor(Math.random() * Number(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['people'])) + 1;
             for(var i = 1; i <= Number(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['people']); i++){
                 if(i == randomPeople){
                     document.getElementById("playButton").innerHTML += `<button id="but${i}" onclick="delButton(this, true)">${i} : ${randomPeople} : true 선택하세요</button>`;
                 } else{
-                    document.getElementById("playButton").innerHTML += `<button id="but${i}" onclick="delButton(this, false)">${i} : false 선택하세요</button>`;
+                    document.getElementById("playButton").innerHTML += `<button id="but${i}" onclick="delButton(this, false)">${i} : ${randomPeople} false 선택하세요</button>`;
                 }
             }
         }
