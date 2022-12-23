@@ -88,12 +88,20 @@
             "job": ["의사", "판사", "대통령", "국회의원", "모델", "유튜버", "심리치료사", "자영업자", "건물주", "환경미화원", "목사", "목수", "기사(운전사)", "군인", "파일럿", "CEO"],
             "place": ["학교", "판문점", "공원", "병원", "도서관", "카페", "공항", "스키장", "방송국", "사진관", "청와대", "피사의 사탑", "개성공단", "군대", "버스정류장", "백두산", "에펠탑", "디즈니랜드"],
             "country": ["미국", "대한민국", "일본", "중국", "포루투칼", "아르헨티나", "모로코", "독일", "북한", "대만", "호주", "베트남", "태국", "크로아티아", "스위스", "스웨덴", "브라질", "튀르키예", "러시아", "가나", "영국", "프랑스", "파키스탄", "폴란드", "불가리아"],
-            "animal": ["호랑이"],
-            "person": ["박근혜"],
-            "goods": ["변기", "스마트폰(휴대폰)", "볼펜", "안경"]
+            "animal": ["호랑이", "사자", "앵무새", "범고래", "홍학", "알파카", "개", "펭귄", "북극곰", "물개", "기린", "고라니", "고릴라", "낙타", "여우", "늑대", "소", "돼지", "병아리", "유니콘", "오리너구리", "쥐", "까마귀", "상어", "원숭이", "용", "토끼", "고등어", "공룡"],
+            "person": ["박근혜", "현빈", "뷔", "원빈", "백종원", "전소미", "이광수", "유재석", "지석진", "아리아나그란데", "버락 오바마", "레이디가가", "메시", "호날두", "손흥민", "조규성", "김민재", "박지성", "류현진", "송중기", "송강", "차은우", "곽튜브", "이정재", "양세찬", "주우재", "안유진(아이브)", "이영지(고등래퍼)", "레오나르도다빈치", "모차차트", "이순신 장군", "세종대왕", "안중근 의사"],
+            "goods": ["변기", "스마트폰(휴대폰)", "볼펜", "안경", "칫솔", "치약", "가위", "칼", "자동차", "비행기", "필통", "블랙박스", "엘리베이터", "계단", "에스컬레이터", "소화기", "사물함", "의자", "화이트보드", "풍선", "캐리어", "응원봉", "텀블러", "노트북", "전기톱", "충전기", "일기장", "이불", "식탁", "후라이팬", "선풍기", "USB", "프린터", "손전등", "라이터", "순간접착제", "고무줄", "물티슈", "손소독제", "화분", "가글", "송곳", "드릴", "각티슈", "비닐장갑", "고려청자", "롱패딩", "쓰레기통"]
         }
         var mainKeyword = keywords[Object.fromEntries((new URLSearchParams(window.location.search)).entries())['subject']][Math.floor(Math.random() * keywords[Object.fromEntries((new URLSearchParams(window.location.search)).entries())['subject']].length)];
         var subKeyword = keywords[Object.fromEntries((new URLSearchParams(window.location.search)).entries())['subject']][Math.floor(Math.random() * keywords[Object.fromEntries((new URLSearchParams(window.location.search)).entries())['subject']].length)];
+        while(True){
+            if(mainKeyword == subKeyword){
+                subKeyword = keywords[Object.fromEntries((new URLSearchParams(window.location.search)).entries())['subject']][Math.floor(Math.random() * keywords[Object.fromEntries((new URLSearchParams(window.location.search)).entries())['subject']].length)];
+            }
+            if(mainKeyword != subKeyword){
+                break;
+            }
+        }
         if(Object.fromEntries((new URLSearchParams(window.location.search)).entries())['people'] == undefined){
             document.getElementById("errorInfo").innerText = "[Code 11] 참가인원 정보가 넘어오지 않아 게임에 참여할 수 없습니다.";
             document.getElementById("errorInfo").style.display = "block";
